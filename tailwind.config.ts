@@ -7,7 +7,12 @@ export default {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        body: ['var(--font-nunito-sans)'],
+        display: ['var(--font-nunito)'],
+      },
+    },
   },
   plugins: [],
 } satisfies Config;
