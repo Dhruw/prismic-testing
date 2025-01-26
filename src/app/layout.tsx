@@ -6,6 +6,8 @@ import './globals.css';
 import config from '../../slicemachine.config.json';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { PrismicPreview } from '@prismicio/next';
+import { repositoryName } from '@/prismicio';
 
 const nunito = Nunito({
   subsets: ['latin'],
@@ -43,6 +45,7 @@ export default function RootLayout({
       <body className={clsx(nunito.variable, nunito_sans.variable)}>
         <Header />
         {children}
+        <PrismicPreview repositoryName={repositoryName} />
         <Footer />
       </body>
     </html>
