@@ -6,7 +6,6 @@ import {
 } from '@prismicio/react';
 import Bounded from '@/components/Bounded';
 import Heading from '@/components/Heading';
-import Button from '@/components/Button';
 import { PrismicNextImage } from '@prismicio/next';
 import { JSX } from 'react';
 import clsx from 'clsx';
