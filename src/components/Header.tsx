@@ -1,12 +1,11 @@
-import { createClient } from '@prismicio/client';
-import { PrismicNextLink } from '@prismicio/next';
-import Link from 'next/link';
-import config from '../../slicemachine.config.json';
 import Bounded from '@/components/Bounded';
 import Logo from '@/components/Logo';
+import { createClient } from "@/prismicio";
+import { PrismicNextLink } from '@prismicio/next';
+import Link from 'next/link';
 
 async function Header() {
-  const client = createClient(config.repositoryName);
+  const client = createClient();
 
   const settings = await client.getSingle('settings');
 
@@ -20,7 +19,9 @@ async function Header() {
           <ul className="flex">
             {settings.data.navigation.map(({ label, link }) => (
               <li key={label}>
-                <PrismicNextLink field={link} className="p-3" />
+                <PrismicNextLink field={link} className="p-3">
+                  {label}
+                </PrismicNextLink>
               </li>
             ))}
           </ul>

@@ -1,14 +1,14 @@
-import { Client, Content, createClient, isFilled } from '@prismicio/client';
-import { PrismicNextImage, PrismicNextLink } from '@prismicio/next';
+import Bounded from '@/components/Bounded';
+import Heading from '@/components/Heading';
+import { createClient } from '@/prismicio';
+import { Content, isFilled } from '@prismicio/client';
+import { PrismicNextImage } from '@prismicio/next';
 import {
   JSXMapSerializer,
   PrismicRichText,
   SliceComponentProps,
 } from '@prismicio/react';
 import { JSX } from 'react';
-import Bounded from '@/components/Bounded';
-import Heading from '@/components/Heading';
-import config from '../../../slicemachine.config.json';
 
 const components: JSXMapSerializer = {
   heading2: ({ children }) => (
@@ -43,7 +43,7 @@ export type TestimonialsProps = SliceComponentProps<Content.TestimonialsSlice>;
 const Testimonials = async ({
   slice,
 }: TestimonialsProps): Promise<JSX.Element> => {
-  const client = createClient(config.repositoryName);
+  const client = createClient();
 
   const testimonials = await Promise.all(
     slice.primary.testimonial.map((testimonial) => {

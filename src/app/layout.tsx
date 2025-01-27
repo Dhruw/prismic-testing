@@ -1,13 +1,11 @@
-import { createClient } from '@prismicio/client';
+import Footer from '@/components/Footer';
+import Header from '@/components/Header';
+import { createClient, repositoryName } from '@/prismicio';
+import { PrismicPreview } from '@prismicio/next';
 import clsx from 'clsx';
 import type { Metadata } from 'next';
 import { Nunito, Nunito_Sans } from 'next/font/google';
 import './globals.css';
-import config from '../../slicemachine.config.json';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import { PrismicPreview } from '@prismicio/next';
-import { repositoryName } from '@/prismicio';
 
 const nunito = Nunito({
   subsets: ['latin'],
@@ -22,7 +20,7 @@ const nunito_sans = Nunito_Sans({
 });
 
 export async function generateMetadata(): Promise<Metadata> {
-  const client = createClient(config.repositoryName);
+  const client = createClient();
 
   const settings = await client.getSingle('settings');
 
@@ -45,9 +43,9 @@ export default function RootLayout({
       <body className={clsx(nunito.variable, nunito_sans.variable)}>
         <Header />
         {children}
-        <PrismicPreview repositoryName={repositoryName} />
         <Footer />
         <div className="fixed bg-gradient-to-tr from-emerald-50 to-cyan-50 z-[-1] inset-0 opacity-50"></div>
+        <PrismicPreview repositoryName={repositoryName} />
       </body>
     </html>
   );

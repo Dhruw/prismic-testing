@@ -1,12 +1,11 @@
-import { createClient } from '@prismicio/client';
+import Logo from '@/components/Logo';
+import { createClient } from "@/prismicio";
 import { PrismicNextLink } from '@prismicio/next';
 import Link from 'next/link';
-import config from '../../slicemachine.config.json';
-import Logo from '@/components/Logo';
 import Bounded from './Bounded';
 
 async function Footer() {
-  const client = createClient(config.repositoryName);
+  const client = createClient();
 
   const settings = await client.getSingle('settings');
 
