@@ -65,8 +65,6 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
             <PrismicNextImage
               field={slice.primary.hero_image}
               className="rounded drop-shadow-xl max-w-4xl w-full"
-              alt={slice.primary.hero_image.alt || ''}
-              fallbackAlt='Image'
             />
           </div>
         </div>

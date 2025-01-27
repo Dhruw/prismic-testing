@@ -8,7 +8,6 @@ import Button from '@/components/Button';
 import Bounded from '@/components/Bounded';
 import Heading from '@/components/Heading';
 import { JSX } from 'react';
-import { PrismicNextLink } from '@prismicio/next';
 
 const components: JSXMapSerializer = {
   heading2: ({ children }) => (
