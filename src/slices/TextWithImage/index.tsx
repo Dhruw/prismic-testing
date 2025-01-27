@@ -39,10 +39,6 @@ const TextWithImage = ({ slice }: TextWithImageProps): JSX.Element => {
       <div className="grid gap-8 md:grid-cols-2 place-items-center">
         <PrismicNextImage
           field={slice.primary.image}
-          //@ts-ignore
-          alt={slice?.primary?.image?.alt || ''}
-          //@ts-ignore
-          fallbackAlt="Image"
           className={clsx(
             'rounded-lg',
             slice.variation === 'imageRight' && 'md:order-2'
